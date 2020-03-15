@@ -208,7 +208,7 @@ RDM_out = zeros(S1,S2);
              SumGuard = db2pow(RDM(curr_range-Gr:curr_range+Gr,curr_doppler-Gd:curr_doppler+Gd));
              SumAllcells = sum(SumAll,'all');
              SumGuardcells = sum(SumGuard,'all');
-             AvgNoise = (SumAllcells - SumGuardcells - CUT)/TotalTrainingCells;
+             AvgNoise = (SumAllcells - SumGuardcells)/TotalTrainingCells;
             %sprintf('%d, %d \n',curr_range,curr_doppler);
             noise_level(curr_range,curr_doppler) = pow2db(AvgNoise);
             if (RDM(curr_range,curr_doppler)>(noise_level(curr_range,curr_doppler)+offset))
