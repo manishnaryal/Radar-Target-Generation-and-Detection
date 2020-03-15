@@ -1,6 +1,6 @@
 # Radar-Target-Generation-and-Detection
 Udacity Project Submission: Radar Target Generation and Detection
-<img src="images/image11.png" width="700" height="400" />
+<img src="image/image11.png" width="700" height="400" />
 
 Udacity Sensor Fusion course for self-driving cars.
 In this course we will be talking about sensor fusion, whch is the process of taking data from multiple sensors and combining it to give us a better understanding of the world around us. we will mostly be focusing on two sensors, lidar, and radar. By the end we will be fusing the data from these two sensors to track multiple cars on the road, estimating their positions and speed.
