@@ -13,18 +13,18 @@ Frequency domain analysis of Radar signal using 1D FFD for Range calculations an
 Calculation of Noise level using CA CFAR in 1D and 2D.
 
 **Implementation steps for the 2D CFAR process.**
-% % Determine the number of Training cells for each dimension Tr and Td from RDM. Similarly, pick the number of guard cells Gr and Gd.
-% % Slide the Cell Under Test (CUT) across the complete cell matrix (Range x Doppler)
+1) Determine the number of Training cells for each dimension Tr and Td from RDM. Similarly, pick the number of guard cells Gr and Gd.
+2) Slide the Cell Under Test (CUT) across the complete cell matrix (Range x Doppler)
         for curr_range = Tr+Gr+1: S1-(Tr+Gr)
             for curr_doppler = Td+Gd+1: S2-(Td+Gd)
-% % Determine the signal level at the Cell Under Test.
+3) Determine the signal level at the Cell Under Test.
     CUT = db2pow(RDM(curr_range,curr_doppler));% cell under test
-% % Sum of all cells in Training window
-% % Sum of All cells in Gaurd window
-% % Measure and average the noise across all the training cells. This gives the threshold
+4) Sum of all cells in Training window
+5) Sum of All cells in Gaurd window
+6) Measure and average the noise across all the training cells. This gives the threshold
     AvgNoise = (SumAllcells - SumGuardcells - CUT)/TotalTrainingCells;
-% % Add the offset (if in signal strength in dB) to the threshold to keep the false alarm to the minimum.
-% % If the CUT signal level is greater than the Threshold, assign a value of 1, else equate it to zero.
+7) Add the offset (if in signal strength in dB) to the threshold to keep the false alarm to the minimum.
+8) If the CUT signal level is greater than the Threshold, assign a value of 1, else equate it to zero.
      if (RDM(curr_range,curr_doppler)>(noise_level(curr_range,curr_doppler)+offset))
                 RDM_out(curr_range,curr_doppler) = 1;
             else
